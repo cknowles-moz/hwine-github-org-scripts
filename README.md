@@ -21,17 +21,13 @@ GITHUB_TOKEN=$(pass show myPAT) script args
 ## Jupyter Notebooks
 ### Docker Images
 
-The Jupyter Notebooks has a complex environment as regards dependencies. The recommended way to
-deal with this is by using a docker container. Given the complexities of setting up Jupyter
-to run in docker, a helper utility is use: `repo2docker`. The make targets
-assume that is installed. Use `pipx install jupyter-repo2docker` to install.
-_(See `README.md` files in the `binder/` directory tree for more info on building the image)_
+The Jupyter Notebooks have a complex environment as regards dependencies. The recommended way to
+deal with this is by using a docker container. For details on building the docker image, see [binder/README.md](binder/README.md)
 
 The Makefile contains targets for building and running the docker images. Invoke
 `make` without arguments to see those targets
 
-- **NOTE**: the docker image allows credentials to be supplied via [sops][sops].
-  The environment variable "`SECOPS_SOPS_PATH`" must be set appropriately.
+- **NOTE**: the docker image allows credentials to be supplied via [sops][sops] or individually. For details, see [`set_secrets_in_env.sh`](set_secrets_in_env.sh).
 
 [sops]: https://github.com/mozilla/sops
 

@@ -17,6 +17,11 @@ fi
 #   2. SECOPS_SOPS_PATH is supplied & valid, and all 3 credentials are empty
 #      In this case, the relative path to the actual credentials file must be
 #      passed as the first arguement
+#
+#   The 3 credentials are:
+#     GITHUB_PAT          token with owner access to the orgs of interest
+#     CIS_CLIENT_ID       token for CIS API access to all records (not just active ones)
+#     CIS_CLIENT_SECRET   matching secret for CIS_CLIENT_ID
 
 if [[ -n $GITHUB_PAT && -n $CIS_CLIENT_ID && -n $CIS_CLIENT_SECRET \
     && -z $SECOPS_SOPS_PATH ]]; then

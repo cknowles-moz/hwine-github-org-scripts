@@ -14,7 +14,7 @@ conda env export --name ${CONDA_DEFAULT_ENV} --file ${CONDA_DEFAULT_ENV}.yml
 
 The usual sequence to update an environment is:
 
-1. Start Jupyter without mounting the local environment ("`make run-dev`").
+1. Start Jupyter without mounting the local environment ("`make run`").
 2. Open the Jupyter console, and start a new terminal session.
 3. Activate the environment you need to modify, usually "notebook" ("`conda
    activate notebook`").
