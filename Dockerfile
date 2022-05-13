@@ -8,11 +8,13 @@ RUN    conda install -y -c conda-forge jupyter_contrib_nbextensions ; \
        jupyter nbextension list
 
 # install the packages needed
-COPY    requirements.txt .
-RUN     pip install -r requirements.txt
+WORKDIR /home/jovyan
+COPY    --chown=jovyan:users requirements.txt .
+RUN     pip install --no-cache-dir -r requirements.txt
 
+USER jovyan
 # install the notebooks and trust the notebooks we ship
-COPY notebooks/*.ipynb ./work/
+COPY --chown=jovyan:users notebooks/*.ipynb ./work/
 RUN    echo "pwd $PWD" ; \
        echo "ls: $(ls -lAd work/*.ipynb)" ; \
        jupyter trust work/*.ipynb
