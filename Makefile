@@ -2,7 +2,7 @@ VENV_NAME:=venv
 gitrev := $(shell git rev-parse --short=10 HEAD)
 now := $(shell date --utc +%Y%m%dT%H%MZ)
 github3_version:=1.1.0-$(now)-$(gitrev)
-port := 10001
+port := 8888
 image_to_use := offboard-slim
 container_user_name := jovyan
 SOPS_credentials := $(SECOPS_SOPS_PATH)/off-boarding.yaml
